@@ -13,9 +13,7 @@ export type Store = {
   globalProxy: Ref<ProxyInfo>;
   globalProxyDetails: Ref<ProxyDetails>;
   historyEntries: Ref<HistoryEntriesMap>;
-  mullvadAccount: Ref<string>;
   proxiesList: Ref<Country[]>;
-  randomProxyActive: Ref<boolean>;
   webRTCStatus: Ref<boolean>;
 };
 
@@ -26,9 +24,7 @@ const useStore = (): Store => {
   const hostProxies = useBrowserStorageLocal('hostProxies', {});
   const hostProxiesDetails = useBrowserStorageLocal('hostProxiesDetails', {});
   const historyEntries = useBrowserStorageLocal('historyEntries', {});
-  const mullvadAccount = useBrowserStorageLocal('mullvadAccount', '');
   const proxiesList = useBrowserStorageLocal('proxiesList', [] as Country[]);
-  const randomProxyActive = useBrowserStorageLocal('randomProxyActive', false);
   const webRTCStatus = useBrowserStorageLocal('webRTCStatus', true);
   return {
     excludedHosts,
@@ -37,9 +33,8 @@ const useStore = (): Store => {
     hostProxies,
     hostProxiesDetails,
     historyEntries,
-    mullvadAccount,
+
     proxiesList,
-    randomProxyActive,
     webRTCStatus,
   };
 };
